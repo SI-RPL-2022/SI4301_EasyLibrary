@@ -34,3 +34,6 @@ Route::get('/peminjamanBuku', function () {
 Route::get('/profilKYC', function () {
     return view('profilKYC');
 });
+Route::get('/pengurusPeminjamanBuku', function () {
+    return view('pengurusPeminjamanBuku');
+});
