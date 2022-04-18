@@ -25,3 +25,8 @@ Route::get('/login', function () {
 Route::get('/profil', function () {
     return view('profil');
 });
+Route::get('/lihatDetail', function () {
+    return view('lihatDetail');
+});
+Route::get('/peminjamanBuku', function () {
+    return view('peminjamanBuku');
