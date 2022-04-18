@@ -1,0 +1,42 @@
+.sidebar-item{
+    transition-duration: 0.3s;
+}
+
+.sidebar-item.active{
+    background-color: #E7ECF8;
+    transition-duration: 0.3s;
+}
+
+.sidebar-item:hover{
+    background-color: #E7ECF8;
+    transition-duration: 0.3s;
+}
+
+.sidebar-link{
+    color: grey;
+    font-size: 17px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.sidebar-link.active{
+    color: #3F6AD8;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.sidebar-link:hover{
+    color: #3F6AD8;
+    transition-duration: 0.3s;
+}
+
+.sidebar-link.active:hover{
+    color: grey;
+    transition-duration: 0.3s;
+}
+
+.text-muted{
+    font-size: 15px;
+}
