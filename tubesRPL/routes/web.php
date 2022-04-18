@@ -30,3 +30,7 @@ Route::get('/lihatDetail', function () {
 });
 Route::get('/peminjamanBuku', function () {
     return view('peminjamanBuku');
+});
+Route::get('/profilKYC', function () {
+    return view('profilKYC');
+});
