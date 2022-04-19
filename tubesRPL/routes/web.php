@@ -37,3 +37,15 @@ Route::get('/profilKYC', function () {
 Route::get('/pengurusPeminjamanBuku', function () {
     return view('pengurusPeminjamanBuku');
 });
+Route::get('/profilAdmin', function () {
+    return view('profilAdmin');
+});
+Route::get('/inputBuku', function () {
+    return view('inputBuku', [ 'title' => 'Input Buku']);
+});
+Route::get('/pengembalianBuku', function () {
+    return view('pengembalianBuku', [ 'title' => 'Pengembalian Buku']);
+});
+Route::get('/profilAdmin', function () {
+    return view('profilAdmin', [ 'title' => 'Profil']);
+});

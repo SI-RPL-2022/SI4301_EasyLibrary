@@ -4,7 +4,7 @@
     <div class="d-flex mt-3 mb-3">
         <i class="bi bi-briefcase bg-white px-4 py-3 mb-5 "></i>
         <div class="ms-5 me-auto">
-            <h4>Donasi Buku</h4>
+            <h4>Input Buku</h4>
             <p class="text-muted">Kelola Penyimpanan Buku</p>
         </div>
         <div class="me-2">
