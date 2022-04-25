@@ -49,3 +49,6 @@ Route::get('/pengembalianBuku', function () {
 Route::get('/profilAdmin', function () {
     return view('profilAdmin', [ 'title' => 'Profil']);
 });
+Route::get('/donasiBuku', function () {
+    return view('donasiBuku', [ 'title' => 'Donasi Buku']);
+});
