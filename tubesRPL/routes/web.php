@@ -56,3 +56,6 @@ Route::get('/donasiBuku', function () {
 Route::get('/dataBuku', function () {
     return view('dataBuku', [ 'title' => 'Data Buku']);
 });
+Route::get('/katalogBuku', function () {
+    return view('katalogBuku', [ 'title' => 'Katalog Buku']);
+});
