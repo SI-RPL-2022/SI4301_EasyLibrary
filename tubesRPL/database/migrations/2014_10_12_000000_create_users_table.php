@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PhpOption\None;
 
 return new class extends Migration
 {
@@ -15,11 +16,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('id_card')->nullable();
+            $table->string('nama_depan');
+            $table->string('nama_belakang')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->integer('no_handphone')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('negara')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('roles')->default('User');
             $table->timestamps();
         });
     }
