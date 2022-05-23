@@ -1,7 +1,7 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-    <!-- bagian kanan -->
+    <!-- bagian kanan tampilan -->
 
     <div class="app-main__outer">
         <div class="app-main__inner">
