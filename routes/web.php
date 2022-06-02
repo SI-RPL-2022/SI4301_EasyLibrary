@@ -46,6 +46,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('/donasiBuku', [DataController::class, 'store']);
     Route::get('/pengurusPeminjamanBuku', [DataController::class, 'peminjaman']);
     Route::get('/pengembalianBuku', [DataController::class, 'pengembalian']);
+    Route::get('/profil/admin', [DataController::class, 'profil']);
+    Route::post('/updateProfilAdmin/{id}', [UserController::class, 'update_admin']);
+
 
 });
 

@@ -108,6 +108,26 @@ class UserController extends Controller
         return redirect('/profil');
     }
 
+    public function update_admin(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->nama_depan = $request->namaDepan;
+        $user->nama_belakang = $request->namaBelakang;
+        $user->id_card = $request->id_card;
+        $user->email = $request->email;
+        $user->no_handphone = $request->nomorHP;
+        $user->alamat = $request->alamat;
+        $user->negara = $request->negara;
+        $user->provinsi = $request->provinsi;
+
+        
+        $user->save();
+
+        return redirect('/profil/admin');
+    }
+
+
 
     
 
