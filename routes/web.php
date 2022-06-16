@@ -60,6 +60,9 @@ Route::get('/profilKYC', function () {
 Route::get('/dataRak', function () {
     return view('dataRak');
 });
+Route::get('/dataUser', function () {
+    return view('dataUser');
+});
 
 Route::get('/profilNew', function () {
     return view('profilNew');
