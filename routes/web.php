@@ -71,4 +71,6 @@ Route::get('/profilAdmin', function () {
     return view('profilAdmin', [ 'title' => 'Profil']);
 });
 
-
+Route::get('dashboard', function () {
+    return view('dashboard', [ 'title' => 'Dashboard']);
+});
