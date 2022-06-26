@@ -45,6 +45,10 @@ Route::post('/pinjam/{id}', [HomeController::class, 'pinjam']);
 // Disini route petugas dan admin
 Route::group(['middleware' => 'admin'], function () {
     
+
+    Route::get('/dashboard', [DataController::class, 'dashboard']);
+    Route::get('/report', [DataController::class, 'report']);
+
     Route::get('/dataBuku', [DataController::class, 'index']);
     Route::get('/donasiBuku', [DataController::class, 'donasi']);
     Route::post('/donasiBuku', [DataController::class, 'store']);
@@ -62,6 +66,8 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/profil/admin', [DataController::class, 'profil']);
     Route::post('/updateProfilAdmin/{id}', [UserController::class, 'update_admin']);
+
+    Route::get('/dataUser', [DataController::class, 'data_user']);
 
     Route::get('/dataRak',[DataController::class, 'data_rak']);
     Route::post('/dataRak/input',[DataController::class, 'input_rak']);
