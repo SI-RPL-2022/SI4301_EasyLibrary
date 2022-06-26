@@ -29,6 +29,21 @@ class DatabaseSeeder extends Seeder
             'roles' => 'Admin'
         ]);
 
+        User::create([
+            'nama_depan' => 'Ahyar',
+            'nama_belakang' => 'Ganteng',
+            'email' => 'ahyar@gmail.com',
+            'password' => Hash::make('12345678'),
+            'roles' => 'User',
+            'id_card' => '12345678',
+            'no_handphone' => '0812345678',
+            'alamat' => 'Aceh',
+            'negara' => 'Indonesia',
+            'provinsi' => 'Aceh',
+            'foto' => 'foto-user/KuDROicKKqkHFvJfO5kqUAYDAePgHYOM0Ls9QEI9.png',
+            'kyc' => 'file-user/Profile KYC Hernanda Eka.pdf'
+        ]);
+
         DataRak::create([
             'nomor' => 'A1',
             'kapasitas' => 100,
@@ -36,7 +51,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DataBuku::create([
-            'id_card' => 123456789,
+            'id_buku' => 'KDBINPUT-123456789',
             'judul' => 'Mindset',
             'tahun_terbit' => 2022,
             'status' => 'Tersedia',
@@ -48,7 +63,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DataBuku::create([
-            'id_card' => 120219000,
+            'user_id' => 2,
+            'id_buku' => 'KDBDONASI-12345678',
             'judul' => 'Think and Grow',
             'tahun_terbit' => 2021,
             'status' => 'Tersedia',

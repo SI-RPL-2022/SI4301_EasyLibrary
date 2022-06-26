@@ -13,4 +13,9 @@ class DataBuku extends Model
     {
         return $this->hasMany(Pinjaman::class);
     }
+
+    public function rak()
+    {
+        return $this->belongsTo(DataRak::class);
+    }
 }

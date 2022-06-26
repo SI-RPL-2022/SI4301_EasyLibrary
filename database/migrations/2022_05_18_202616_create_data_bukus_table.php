@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('data_bukus', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_card');
+            $table->foreignId('user_id')->nullable();
+            $table->string('id_buku');
             $table->string('judul');
             $table->integer('tahun_terbit');
             $table->string('status');

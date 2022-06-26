@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataBuku;
 use App\Models\Pinjaman;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -86,7 +89,9 @@ class UserController extends Controller
 
     public function show()
     {
-        return view('profil');
+        $buku = DataBuku::where('user_id','=',auth()->user()->id)->get();
+        $total = $buku->count();
+        return view('profil', compact('total'));
     }
 
     public function update(Request $request, $id)
@@ -105,7 +110,7 @@ class UserController extends Controller
         
         $user->save();
 
-        return redirect('/profil');
+        return back();
     }
 
     public function update_admin(Request $request, $id)
@@ -128,7 +133,39 @@ class UserController extends Controller
     }
 
 
+    public function upload_foto(Request $request,$id)
+    {   
+        $user = User::find($id);
 
+        if (File::exists('storage/'. $user->foto)) {
+            
+            File::delete('storage/'. $user->foto);
+        }
+
+        $user->foto = $request->file('foto')->store('foto-user');
+
+        $user->save();
+
+        return back();
+    }
+
+
+    public function upload_kyc(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $user->kyc = $request->file('profilKYC')->storeAs('file-user', 'Profile KYC ' . $user->nama_depan .' '.$user->nama_belakang . '.pdf');
+        
+        $user->save();
+        return back();
+    }
+    
+    public function download_kyc($id)
+    {
+        $user = User::find($id);
+
+        return Storage::download($user->kyc);
+    }
     
 
     public function logout(Request $request)

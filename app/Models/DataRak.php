@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pinjaman extends Model
+class DataRak extends Model
 {
     use HasFactory;
 
     public function buku()
     {
-        return $this->belongsTo(DataBuku::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(DataBuku::class);
     }
 }

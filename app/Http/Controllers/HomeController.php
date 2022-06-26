@@ -31,10 +31,14 @@ class HomeController extends Controller
     {
         $pinjam  = new Pinjaman();
 
+        $no_rand = rand(00000, 99999);
+
+        $pinjam->peminjaman_id = "IDPJMN-". $no_rand;
         $pinjam->tanggal_pinjam = $request->tanggal_pinjam;
         $pinjam->tanggal_kembali = $request->tanggal_kembali;
-        $pinjam->id_user = auth()->user()->id;
+        $pinjam->user_id = auth()->user()->id;
         $pinjam->buku_id = $id;
+        $pinjam->status = 'Pending';
 
         $pinjam->save();
 
@@ -44,7 +48,7 @@ class HomeController extends Controller
     public function riwayat()
     {   
         $id = auth()->user()->id;
-        $pinjam = Pinjaman::where("id_user", "=", $id)->get();
+        $pinjam = Pinjaman::where("user_id", "=", $id)->get();
 
         return view('peminjamanBuku', compact('pinjam'));
     }
