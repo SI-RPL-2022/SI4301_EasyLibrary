@@ -126,7 +126,7 @@
     </div>
     <!-- akhir card kedua -->
 
-    {{-- akhir content profile --}}
+    {{-- akhir content profile done --}}
 
     @include('layouts.footer')
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
