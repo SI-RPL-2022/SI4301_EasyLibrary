@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::get('/logout', [UserController::class, 'logout']);
 
 Route::get('/profil', [UserController::class, 'show'])->middleware('auth');
 Route::post('/updateProfil/{id}', [UserController::class, 'update']);
+Route::post('/upload/foto/{id}', [UserController::class, 'upload_foto']);
+Route::post('/upload/kyc/{id}', [UserController::class, 'upload_kyc']);
+Route::get('/download/kyc/{id}', [UserController::class, 'download_kyc']);
 
 
 Route::get('/peminjamanBuku', [HomeController::class, 'riwayat']);
@@ -44,10 +48,27 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/dataBuku', [DataController::class, 'index']);
     Route::get('/donasiBuku', [DataController::class, 'donasi']);
     Route::post('/donasiBuku', [DataController::class, 'store']);
+    
+    Route::post('/inputBuku', [DataController::class, 'store_buku']);
+    Route::post('/editBuku/{id}', [DataController::class, 'update_buku']);
+    
+
     Route::get('/pengurusPeminjamanBuku', [DataController::class, 'peminjaman']);
+    Route::post('/input/peminjaman', [DataController::class, 'pinjam']);
+    Route::post('/update/peminjaman/{id}', [DataController::class, 'update_pinjam']);
+
     Route::get('/pengembalianBuku', [DataController::class, 'pengembalian']);
+    Route::post('/input/pengembalian', [DataController::class, 'input_pengembalian']);
+
     Route::get('/profil/admin', [DataController::class, 'profil']);
     Route::post('/updateProfilAdmin/{id}', [UserController::class, 'update_admin']);
+
+    Route::get('/dataRak',[DataController::class, 'data_rak']);
+    Route::post('/dataRak/input',[DataController::class, 'input_rak']);
+    Route::post('/dataRak/update/{id}',[DataController::class, 'update_rak']);
+    Route::get('/dataRak/delete/{id}',[DataController::class, 'del_rak']);
+
+    Route::get('/deleteBuku/{id}', [DataController::class, 'del_buku']);
 
 
 });
@@ -57,23 +78,14 @@ Route::get('/profilKYC', function () {
     return view('profilKYC');
 });
 
-Route::get('/dataRak', function () {
-    return view('dataRak');
-});
-Route::get('/dataUser', function () {
-    return view('dataUser');
-});
-
 Route::get('/profilNew', function () {
     return view('profilNew');
 });
 Route::get('/inputBuku', function () {
-    return view('inputBuku', [ 'title' => 'Input Buku']);
+    return view('inputBuku', [ 'judul' => 'Input Buku']);
 });
 Route::get('/profilAdmin', function () {
     return view('profilAdmin', [ 'title' => 'Profil']);
 });
 
-Route::get('dashboard', function () {
-    return view('dashboard', [ 'title' => 'Dashboard']);
-});
+
