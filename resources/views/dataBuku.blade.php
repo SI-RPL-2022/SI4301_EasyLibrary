@@ -176,8 +176,8 @@
             </div>
             <!-- akhir card -->
             <!-- akhir konten  -->
+            <!-- done  -->
 
         </div>
-
     </div>
 @endsection
