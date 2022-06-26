@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('negara')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('foto')->nullable();
+            $table->string('kyc')->nullable();
             $table->string('roles')->default('User');
             $table->timestamps();
         });

@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('status');
             $table->string('pengarang');
             $table->string('penerbit');
-            $table->string('id_rak');
+            $table->foreignId('rak_id');
             $table->string('foto');
+            $table->string('tipe_buku');
             $table->timestamps();
         });
     }
