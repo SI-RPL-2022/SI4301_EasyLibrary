@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css'); }} ">
     <link rel="stylesheet" href="{{ URL::asset('css/pe-icon-7-stroke.css'); }} ">
+    <script src="{{  URL::asset('js/main.js')}}"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     {{-- /////// --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -136,7 +137,7 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Menu</li>
                             <li>
-                                <a href="#" class="mm">
+                                <a href="/dashboard" class="mm{{ ($judul === "Dashboard Buku") ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-house"></i>
                                     Dashboard
                                 </a>
@@ -154,7 +155,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="mm">
+                                <a href="/pengembalianBuku" class="mm{{ ($judul === "Pengembalian Buku") ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-arrow-left-right"></i>
                                     Pengembalian Buku
                                 </a>
