@@ -1,7 +1,7 @@
 @extends('layouts.admin_layout')
 
 @section('content')
-    <!-- bagian kanan tampilan -->
+    <!-- bagian kanan -->
 
     <div class="app-main__outer">
         <div class="app-main__inner">
@@ -143,8 +143,8 @@
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label for="validationTooltip01">Penerbit</label>
-                                        <input name="penerbit" type="text" class="form-control" id="validationTooltip01"
-                                            placeholder="Masukkan Nama Penerbit" required>
+                                        <input name="penerbit" type="text" class="form-control"
+                                            id="validationTooltip01" placeholder="Masukkan Nama Penerbit" required>
                                         <div class="valid-tooltip">
                                             Looks good!
                                         </div>
@@ -154,8 +154,10 @@
                                         <label>Jenis Rak</label>
                                         <select name="rak" id="validationTooltip02" class="form-select">
                                             <option value="" selected hidden disabled>Pilih Rak</option>
-                                            <option value="A1">A1</option>
-                                            <option value="A2">A2</option>
+                                            @foreach ($rak as $raks)
+                                                <option value="{{$raks->id}}">{{$raks->nomor}}</option>
+                                            @endforeach
+
                                         </select>
                                         {{-- <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
                                     class="col-md-12 pd-6 pb-2 pt-2 dropdown-toggle btn btn-outline-light"
@@ -170,13 +172,13 @@
                                     </div>
                                     <!--  akhri dropdown rak -->
                                     <!-- <div class="col-md-6 mb-3">
-                                                <label for="validationTooltip02">Pilih Rak</label>
-                                                <input type="text" class="form-control" id="validationTooltip02"
-                                                    placeholder="Pilih Rak input" required>
-                                                <div class="valid-tooltip">
-                                                    Looks good!
-                                                </div>
-                                            </div> -->
+                                                    <label for="validationTooltip02">Pilih Rak</label>
+                                                    <input type="text" class="form-control" id="validationTooltip02"
+                                                        placeholder="Pilih Rak input" required>
+                                                    <div class="valid-tooltip">
+                                                        Looks good!
+                                                    </div>
+                                                </div> -->
                                 </div>
                                 <hr>
                                 <div style="text-align: right;">
@@ -247,26 +249,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ( $data as $buku )
-                                        
-                                    
-                                    <tr>
-                                        <td scope="row">{{$nomor++}}</td>
-                                        <td>{{$buku->id_card}}</td>
-                                        <td>{{$buku->judul}}</td>
-                                        <td>{{$buku->id_rak}}</td>
-                                        <td><b>{{$buku->status}}</b></td>
+                                    @foreach ($data as $buku)
+                                        <tr>
+                                            <td scope="row">{{ $nomor++ }}</td>
+                                            <td>{{ $buku->id_buku }}</td>
+                                            <td>{{ $buku->judul }}</td>
+                                            <td>{{ $buku->rak->nomor }}</td>
+                                            <td><b>{{ $buku->status }}</b></td>
 
-                                        <th>
-                                            <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal"
-                                                data-target=".bd-example-modal-lg-detail">Detail</button>
-                                            <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal"
-                                                data-target=".bd-example-modal-lg">Ubah</button>
-                                            <button type="button" class="btn mr-2 mb-2 btn-danger" data-toggle="modal"
-                                                data-target="#exampleModal">Delete</button>
-                                        </th>
-                                    </tr>
-
+                                            <th>
+                                                <button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal"
+                                                    data-target="#editBukuModal{{ $buku->id }}">Ubah</button>
+                                                <button type="button" class="btn mr-2 mb-2 btn-danger" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $buku->id }}">Delete</button>
+                                            </th>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -278,6 +275,148 @@
             <!-- akhir konten  -->
             <!-- akhir dari konten  (semua sudah auto padding jadinya ya) -->
         </div>
-
     </div>
+</div>
+
+    @foreach ($data as $buku)
+        <!-- modar untuk edit data buku -->
+        <div class="modal fade bd-example-modal-lg" id="editBukuModal{{ $buku->id }}" tabindex="1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="padding-top: 100px;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Input Buku</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="/editBuku/{{ $buku->id }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <!-- input di modal -->
+                            <!-- baris 1 -->
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">ID Card</label>
+                                    <input name="id_card" type="text" class="form-control" id="validationTooltip01"
+                                        placeholder="Masukkan ID Card" value="{{ $buku->id_card }}" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip02">Tahun terbit</label>
+                                    <input name="tahun" type="number" class="form-control" id="validationTooltip02"
+                                        placeholder="Masukkan Tahun Terbit" value="{{ $buku->tahun_terbit }}" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- baris 2 -->
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">Judul Buku</label>
+                                    <input name="judul" type="text" class="form-control" id="validationTooltip01"
+                                        placeholder="Masukkan Judul Buku" value="{{ $buku->judul }}" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <!-- masukkan status barang harus nya dropdown -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip02">Status Buku</label>
+                                    <select name="status" id="validationTooltip02" class="form-select">
+                                        <option value="" selected hidden disabled>Pilih Status</option>
+                                        <option value="Dipinjam" @if ($buku->status == 'Dipinjam') selected @endif>Dipinjam
+                                        </option>
+                                        <option value="Tersedia" @if ($buku->status == 'Tersedia') selected @endif>Tersedia
+                                        </option>
+                                    </select>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- baris 3 -->
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">Pengarang</label>
+                                    <input name="pengarang" type="text" class="form-control" id="validationTooltip01"
+                                        placeholder="Masukkan Nama Pengarang" value="{{ $buku->pengarang }}" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <!-- input foto -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip02">Masukkan Foto Buku</label>
+                                    <input name="foto" type="file" class="form-control" id="validationTooltip02"
+                                        placeholder="Pilih Foto Buku">
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Baris 4 -->
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationTooltip01">Penerbit</label>
+                                    <input name="penerbit" type="text" class="form-control" id="validationTooltip01"
+                                        placeholder="Masukkan Nama Penerbit" value="{{ $buku->penerbit }}" required>
+                                    <div class="valid-tooltip">
+                                        Looks good!
+                                    </div>
+                                </div>
+                                <!-- Jenis Rak Dropdown -->
+                                <div class="col-md-6 mb-3 dropdown">
+                                    <label>Jenis Rak</label>
+                                    <select name="rak" id="validationTooltip02" class="form-select">
+                                        <option value="" selected hidden disabled>Pilih Rak</option>
+                                        @foreach ($rak as $raks)
+                                            <option value="{{ $raks->id }}"
+                                                @if ($buku->rak_id == $raks->id) selected @endif>{{ $raks->nomor }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+
+    <!-- modar untuk delete data buku -->
+    @foreach ($data as $buku)
+        <div class="modal fade" id="exampleModal{{ $buku->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true" style="padding-top: 100px;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Buku</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Apakah yakin ingi menghapus data Buku {{ $buku->judul }} tersebut?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a href="/deleteBuku/{{ $buku->id }}" class="btn btn-danger">Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
