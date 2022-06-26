@@ -6,20 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{{$judul}}</title>
+    <title>{{ $judul }}</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     {{-- <link href="./main.css" rel="stylesheet"> --}}
     {{-- copy css dibawah ini --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('css/main.css'); }} ">
-    <link rel="stylesheet" href="{{ URL::asset('css/pe-icon-7-stroke.css'); }} ">
-    <script src="{{  URL::asset('js/main.js')}}"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ URL::asset('css/main.css') }} ">
+    <link rel="stylesheet" href="{{ URL::asset('css/pe-icon-7-stroke.css') }} ">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     {{-- /////// --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script type="text/javascript" src="{{ url('js/main.js') }}"></script>
+
 </head>
 
 <body>
@@ -27,7 +30,8 @@
         <div class="app-header header-shadow">
             <div class="app-header__logo">
                 <!-- logo navbar kiri atas  -->
-                <div class=""> <img src="assets/images/logoeasylib.png" alt="" style="width: 120px;"></div>
+                <div class=""> <img src="assets/images/logoeasylib.png" alt="" style="width: 120px;">
+                </div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -64,7 +68,18 @@
                         <div class="widget-content p-0">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
-                                    <div class="btn-group">
+                                    <div class="dropdown">
+                                        <a class=" dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <img width="42" class="rounded-circle" src="./img/admin-logo.png"
+                                                alt="">
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                    {{-- <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
                                             <img width="42" class="rounded-circle" src="./img/admin-logo.png"
@@ -75,16 +90,17 @@
                                             class="dropdown-menu dropdown-menu-right">
                                             <button type="button" tabindex="0" class="dropdown-item">User
                                                 Account</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Settings</button>
+                                            <button type="button" tabindex="0"
+                                                class="dropdown-item">Settings</button>
                                             <button type="button" tabindex="0" class="dropdown-item">Actions</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <a href="/logout" tabindex="0" class="dropdown-item fw-bold">Logout</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        {{auth()->user()->nama_depan}}
+                                        {{ auth()->user()->nama_depan }}
                                     </div>
                                     <div class="widget-subheading">
                                         Admin
@@ -137,25 +153,27 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Menu</li>
                             <li>
-                                <a href="/dashboard" class="mm{{ ($judul === "Dashboard Buku") ? '-active' : '' }}">
+                                <a href="/dashboard" class="mm{{ $judul === 'Dashboard' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-house"></i>
                                     Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="/donasiBuku" class="mm{{ ($judul === "Donasi Buku") ? '-active' : '' }}">
+                                <a href="/donasiBuku" class="mm{{ $judul === 'Donasi Buku' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-book"></i>
                                     Donasi Buku
                                 </a>
                             </li>
                             <li>
-                                <a href="/pengurusPeminjamanBuku" class="mm{{ ($judul === "Peminjaman Buku") ? '-active' : '' }}">
+                                <a href="/pengurusPeminjamanBuku"
+                                    class="mm{{ $judul === 'Peminjaman Buku' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-arrow-right"></i>
                                     Peminjaman Buku
                                 </a>
                             </li>
                             <li>
-                                <a href="/pengembalianBuku" class="mm{{ ($judul === "Pengembalian Buku") ? '-active' : '' }}">
+                                <a href="/pengembalianBuku"
+                                    class="mm{{ $judul === 'Pengembalian Buku' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-arrow-left-right"></i>
                                     Pengembalian Buku
                                 </a>
@@ -163,19 +181,19 @@
                             <!-- pemisah menu dengan Data -->
                             <li class="app-sidebar__heading">DATA</li>
                             <li>
-                                <a href="#" class="mm">
+                                <a href="/dataRak" class="mm{{ $judul === 'Data Rak' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-hdd-rack "></i>
                                     Data Rak
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="mm">
+                                <a href="/dataUser" class="mm{{ $judul === 'Data User' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-people"></i>
                                     Data User
                                 </a>
                             </li>
                             <li>
-                                <a href="/dataBuku" class="mm{{ ($judul === "Data Buku") ? '-active' : '' }}">
+                                <a href="/dataBuku" class="mm{{ $judul === 'Data Buku' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-journals"></i>
                                     Data Buku
                                 </a>
@@ -183,7 +201,7 @@
                             <!-- pemisah data dengan profile -->
                             <li class="app-sidebar__heading">SETTINGS</li>
                             <li>
-                                <a href="#" class="mm">
+                                <a href="/profil/admin" class="mm{{ $judul === 'Profil Admin' ? '-active' : '' }}">
                                     <i class="metismenu-icon bi bi-person"></i>
                                     Profile Admin
                                 </a>
@@ -194,16 +212,21 @@
                 </div>
             </div>
 
+
             @yield('content')
 
-            
             <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
         </div>
     </div>
-    <script type="text/javascript" src="./assets/scripts/main.js"></script>
 
-{{-- masukin modal nanti di bawah ya --}}
-
+    {{-- masukin modal nanti di bawah ya --}}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="{{ url('js/main.js') }}"></script>
 </body>
-<script src="{{  URL::asset('js/main.js')}}"></script>
+
 </html>

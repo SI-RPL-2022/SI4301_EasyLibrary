@@ -70,8 +70,111 @@
         <!-- awal konten -->
         <h5><b>Masukkan Data Buku</b></h5>
         <br>
-        
-        <!-- belum ada input buku (ahyar) -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <!-- baris 1 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip01">ID Card</label>
+                                <input type="text" class="form-control" id="validationTooltip01"
+                                    placeholder="Masukkan ID Card" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip02">Tahun terbit</label>
+                                <input type="text" class="form-control" id="validationTooltip02"
+                                    placeholder="Masukkan Tahun Terbit" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- baris 2 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip01">Judul Buku</label>
+                                <input type="text" class="form-control" id="validationTooltip01"
+                                    placeholder="Masukkan Judul Buku" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <!-- masukkan status barang harus nya dropdown -->
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip02">Status Buku</label>
+                                <input type="text" class="form-control" id="validationTooltip02"
+                                    placeholder="Status Buku (dropdown)" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- baris 3 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip01">Pengarang</label>
+                                <input type="text" class="form-control" id="validationTooltip01"
+                                    placeholder="Masukkan Nama Pengarang" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <!-- input foto -->
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip02">Masukkan Foto Buku</label>
+                                <input type="file" class="form-control" id="validationTooltip02"
+                                    placeholder="Pilih Foto Buku" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Baris 4 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip01">Penerbit</label>
+                                <input type="text" class="form-control" id="validationTooltip01"
+                                    placeholder="Masukkan Nama Penerbit" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <!-- Jenis Rak Dropdown -->
+                            <div class="col-md-6 mb-3 dropdown">
+                                <label>Jenis Rak</label>
+                                <br>
+                                <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
+                                    class="col-md-12 pd-6 pb-2 pt-2 dropdown-toggle btn btn-outline-light"
+                                    style="text-align:left; color: black;">Pilih Rak</button>
+                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                    <button type="button" tabindex="0" class="dropdown-item">A1</button>
+                                    <button type="button" tabindex="0" class="dropdown-item">A2</button>
+                                    <button type="button" tabindex="0" class="dropdown-item">
+                                        Di get dari input</button>
+                                </div>
+                            </div>
+                            <!--  akhri dropdown rak -->
+                            <!-- <div class="col-md-6 mb-3">
+                                            <label for="validationTooltip02">Pilih Rak</label>
+                                            <input type="text" class="form-control" id="validationTooltip02"
+                                                placeholder="Pilih Rak input" required>
+                                            <div class="valid-tooltip">
+                                                Looks good!
+                                            </div>
+                                        </div> -->
+                        </div>
+                        <hr>
+                        <div style="text-align: right;">
+                            <button class="btn btn-primary">Simpan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- akhir input -->
 
         <!-- awal tabel -->
