@@ -83,6 +83,7 @@
             </div>
     </section>
     @include('layouts.footer')
+    <!-- DONE -->
 </body>
 
 </html>
