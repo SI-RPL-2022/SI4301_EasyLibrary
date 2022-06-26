@@ -21,7 +21,7 @@
             <h2>Detail Buku</h2>
           </div>
           @foreach ($pinjam as $data )
-          <div class="container-fluid overflow-hidden bg-light" style="border-radius: 20px; padding: 20px;">
+          <div class="container-fluid overflow-hidden bg-light mb-5" style="border-radius: 20px; padding: 20px;">
             <div class="col">
                 <div class="row">
                 <div class="d-flex">
