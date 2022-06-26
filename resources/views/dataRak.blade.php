@@ -126,7 +126,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Data Buku</h5>
                             <!-- filter -->
-                            <div class="row">
+                            <div class="d-flex">
                                 <div class="dropdown mb-3 ml-3 mr-3">
                                     <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
