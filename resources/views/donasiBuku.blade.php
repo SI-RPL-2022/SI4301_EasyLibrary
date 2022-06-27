@@ -248,6 +248,7 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+                                <!-- DONE -->
                                 <tbody>
                                     @foreach ($data as $buku)
                                         <tr>
