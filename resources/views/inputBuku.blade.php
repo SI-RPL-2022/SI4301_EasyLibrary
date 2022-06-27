@@ -234,7 +234,7 @@
 
                                 </tr>
                             </thead>
-                            <!-- done -->
+                            <!-- DONE -->
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
