@@ -96,6 +96,7 @@
                             <th>Status</th>
                         </tr>
                     </thead>
+                    <!-- DONE -->
                     <tbody>
                         @php
                             $i = 1;
