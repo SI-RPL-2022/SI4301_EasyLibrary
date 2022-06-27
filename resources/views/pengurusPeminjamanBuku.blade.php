@@ -225,8 +225,9 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
+                        <!-- DONE -->
                         <tbody>
-                            
+
                             @foreach ($pinjam as $data)
                                 <tr>
                                     <th scope="row"><?php echo $i++; ?></th>
