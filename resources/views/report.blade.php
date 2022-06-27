@@ -121,6 +121,7 @@
                                         <th>Jumlah Peminjaman/Bulan</th>
                                     </tr>
                                 </thead>
+                                <!-- DONE -->
                                 <tbody>
                                     <tr>
                                         <td>1</td>
