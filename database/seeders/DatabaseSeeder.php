@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'negara' => 'Indonesia',
             'provinsi' => 'Aceh',
             'foto' => 'foto-user/KuDROicKKqkHFvJfO5kqUAYDAePgHYOM0Ls9QEI9.png',
-            'kyc' => 'file-user/Profile KYC Hernanda Eka.pdf'
+            'kyc' => 'file-user/Profile KYC Ahyar.pdf'
         ]);
 
         DataRak::create([

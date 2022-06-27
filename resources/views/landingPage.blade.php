@@ -28,7 +28,8 @@
                 <div class="row align-items-center">
                     <div class="col-6">
                         
-                        <h1 class="display-10">Buku adalah jendela ilmu,<br>mari budayakan membaca!</h1>
+                        <h1 class="display-10">Buku adalah jendela ilmu,</h1>
+                        <h1 class="display-10">mari budayakan membaca!</h1>
                         <p class="lead">Dengan bergabung ke Easylib dapat membuka wawasan<br>
                             dengan buku dimana membaca menjadi mudah dan menyenangkan.</p>
                         <a class="btn btn-primary btn-lg" href="#" role="button">Ayo, Membaca!</a>

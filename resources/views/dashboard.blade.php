@@ -105,20 +105,20 @@
                         <a href="/report">
                         <div class="main-card mb-3 card">
                             <div class="card-body">
-                                <h5 class="card-title">Vertical Bars</h5>
+                                <h5 class="card-title">Data Peminjaman/Bulan</h5>
                                 <canvas id="canvas"></canvas>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 col-xl-6">
+                {{-- <div class="col-md-6 col-xl-6">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <h5 class="card-title">Pie Chart</h5>
-                            <canvas id="chart-area"></canvas>
+                                <h5 class="card-title">Vertical Bars</h5>
+                                <canvas id="canvas"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- akhir chart -->
 
